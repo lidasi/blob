@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>progress元素在下载时使用</title>
+    <style type="text/css">
+        body{
+            font-size: 13px;
+        }
+        p{
+            padding: 0px;
+            margin: 0px;
+        }
+        .inputBtn {
+            border: solid 1px #CCC;
+            background-color: #eee;
+            line-height: 18px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <p id="dwn_id">开始下载</p>
+    <progress value="0" max="100" id="progressId"></progress>
+    <input type="button" value="下载" class="inputBtn" onclick="btn_click()"/>
+
+    <script type="text/javascript">
+        var intValue = 0;
+        var inTimer;
+        var dwn_id = document.getElementById("dwn_id")
+        var progressId = document.getElementById("progressId")
+        function progressFun() {
+            intValue ++
+            progressId.value = intValue;
+            if(intValue >= progressId.max) {
+                clearInterval(inTimer);
+                dwn_id.innerHTML = "下载完成！"
+            } else {
+                dwn_id.innerHTML = "正在下载 " + intValue +"%";
+            }
+        }
+        function btn_click() {
+            inTimer = setInterval(progressFun, 100);
+        }
+    </script>
+</body>
+</html>

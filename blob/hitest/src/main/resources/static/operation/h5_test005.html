@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        body{
+            font-size: 12px;
+        }
+        span{
+            font-weight: bold;
+        }
+        details {
+            overflow: hidden;
+            height: 0;
+            padding-left: 200px;
+            position: relative;
+            display: block;
+        }
+        details[open] {
+            height: auto;
+        }
+    </style>
+</head>
+<body>
+    <span onclick="span_click()">脚注</span>
+    <details id="details1">
+        页面生成于 2017年8月30日
+    </details>
+    <!-- <span>显示脚注</span>
+    <details open="open">
+        页面生成于2017年8月30日 二
+    </details>
+    -->
+    <script type="text/javascript">
+        function span_click() {
+            var obj = document.getElementById("details1");
+            var open1 = obj.getAttribute("open");
+            if (open1 != "open") {
+                obj.setAttribute("open", "open");
+            } else {
+                obj.removeAttribute("open")
+            }
+        }
+
+    </script>
+</body>
+</html>

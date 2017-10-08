@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>脚本元素的使用</title>
+    <link href="../css/css3.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" async="true">
+        function Btn_Click(){
+            var strText = document.getElementById("txtContent").value;
+            var strDiv = document.getElementById("divShow");
+            strDiv.style.display = "block";
+            strDiv.innerHTML = "你输入的字符是" +strText;
+        }
+    </script>
+    <noscript>你的浏览器不支持javascript</noscript>
+</head>
+<body>
+    <input type="text" id="txtContent" class="inputTxt">
+    <input type="button" value="请点击我" class="inputBtn" onClick="Btn_Click();">
+    <div id="divShow" class="divShow"></div>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="renderer" content="webkit">
+
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="alternate icon" type="image/png" href="../img/logo.png">
+    <title>用户注册页面</title>
+    <link rel="stylesheet" href="../css/register.css">
+    <link rel="stylesheet" href="../assets/css/amazeui.css">
+    <script type="text/javascript" src="../js/jquery.min.js"></script>
+    <script src="../js/util.js" type="text/javascript"></script>
+    <script src="../js/request.js" type="text/javascript"></script>
+    <script src="../js/register.js" type="text/javascript"></script>
+    <script src="../js/register.js" type="text/javascript"></script>
+    <script src="../js/regular.js" type="text/javascript"></script>
+
+    <link rel="stylesheet" href="../pop/reveal.css">
+    <script type="text/javascript" src="../pop/jquery.reveal.js"></script>
+</head>
+<body>
+    <div id="body_div">
+        <div id="register_page">
+            <span id="new_text"><h2>新用户注册</h2></span>
+            <span id="use_text">用户名:</span><input onblur="mouseLeave(0)" placeholder="请输入用户名" id="username" />
+            <span id="psw_text">密&nbsp;&nbsp;&nbsp;码：</span><input onblur="mouseLeave(1)" placeholder="请输入密码" type="password" id="password" />
+            <span id="eml_text">邮&nbsp;&nbsp;&nbsp;箱：</span><input onblur="mouseLeave(2)" placeholder="请输入邮箱" type="email" id="email" />
+            <span id="validate">验证码:</span><input onblur="mouseLeave(3)"  placeholder="请输入你的验证码" id="validate_text" />
+            <div id="validate_area">
+                <input type="button" id="validate_btn" class="am-btn-xs am-btn-secondary am-round" onclick="email_validate()" value="获取邮箱验证码">
+            </div>
+            <span id="register_msg"></span>
+
+            <div id="res_bit">
+                <input id="login_sit" type="button" onclick="dateMourse()" class="am-btn am-btn-secondary am-round am-btn-block" value="注册" disabled>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script type="text/javascript" src="../assets/js/amazeui.ie8polyfill.js"></script>
+</html>

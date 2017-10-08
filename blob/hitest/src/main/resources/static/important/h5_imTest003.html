@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>列表的使用</title>
+    <link rel="stylesheet" type="text/css" href="../css/css3.css">
+    <script type="text/javascript" async="true">
+        function Btn_Click() {
+            var strTxt = document.getElementById("inputTxt").value;
+            var strDiv = document.getElementById("olList");
+            strDiv.setAttribute("start", strTxt);
+
+        }
+    </script>
+</head>
+<body>
+    <h5>各类图书排名</h5>
+    <ol id="olList">
+        <li>计算机</li>
+        <li>社会</li>
+        <li>文艺</li>
+    </ol>
+    <h5>设置开始</h5>
+    <input type="text" id="inputTxt" class="inputTxt" style="width: 60px" />
+    <input type="button" id="inputBtn" value="确定" class="inputBtn" onClick="Btn_Click()" />
+</body>
+</html>

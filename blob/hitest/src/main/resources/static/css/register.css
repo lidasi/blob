@@ -1,0 +1,92 @@
+#body_div{
+    width: 100%;
+    height: 1200px;
+    background-image: url("../img/background_1024.jpg");
+}
+#register_page{
+    position: relative;
+    width: 400px;
+    height: 500px;
+    border-radius: 15px;
+    top: 90px;
+    left: 37%;
+    background-color: #ffffff;
+    filter:alpha(Opacity=80);-moz-opacity:0.9;opacity: 0.9;
+}
+#new_text{
+    position: absolute;
+    top: 20px;
+    width: 130px;
+    height: 30px;
+    left:130px;
+    text-align: center;
+    font-family: 华文彩云;
+    border-radius: 5px;
+}
+
+#use_text{
+position: absolute;
+    top: 80px;
+    left: 80px;
+}
+#username{
+    position: absolute;
+    top: 80px;
+    left:150px;
+}
+
+#psw_text{
+    position: absolute;
+    top: 140px;
+    left: 80px;
+}
+#password{
+    position: absolute;
+    top:140px;
+    left: 150px;
+}
+#eml_text{
+    position: absolute;
+    top: 200px;
+    left: 80px;
+}
+#email{
+    position: absolute;
+    top: 200px;
+    left: 150px;
+}
+#validate_btn{
+    position: absolute;
+    top:260px;
+    left: 215px;
+}
+#validate{
+    position: absolute;
+    top: 290px;
+    left:80px;
+}
+#validate_text{
+    position: absolute;
+    top: 290px;
+    left: 150px;
+}
+#res_bit{
+    position: absolute;
+    width: 100px;
+    height: 30px;
+    top: 420px;
+    left: 148px;
+}
+#register_msg{
+    position: absolute;
+    left: 25px;
+    top:340px;
+    width: 350px;
+    height: 70px;
+    text-align: center;
+    font-family: 华文新魏;
+
+}
+#register_success{
+
+}

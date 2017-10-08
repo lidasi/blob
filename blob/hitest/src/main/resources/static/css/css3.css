@@ -1,0 +1,22 @@
+@charset "utf-8";
+/* CSS Document */
+body{}
+.inputBtn{
+    border: solid 1px #CCC;
+    background-color: #eee;
+    line-height: 18px;
+    font-size: 12px;
+}
+.inputTxt{
+    border: solid 1px #CCC;
+    line-height: 18px;
+    font-size: 12px;
+}
+.divShow{
+    border: solid 1px #666;
+    background-color: #eee;
+    margin-top: 5px;
+    padding: 5px;
+    width: 196px;
+    display: none;
+}

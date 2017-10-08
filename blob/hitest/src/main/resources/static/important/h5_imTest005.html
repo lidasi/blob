@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function Rdo_Click(v) {
+            var blnShow = (v)?false:true;
+            var strAtr = document.getElementById("art");
+            strAtr.setAttribute("hidden", blnShow);
+        }
+    </script>
+</head>
+<body>
+    <nav style="padding-top: 5px; padding-bottom: 5px" >
+        <input type="radio" value="1" id="rdoHidden_1" onClick="Rdo_Click(1)"/>显示
+        <input type="radio" value="0" id="rdoHidden_2" onClick="Rdo_Click(0)"/>隐藏
+
+    </nav>
+    <article id="art">
+        今天天气真好
+    </article>
+</body>
+</html>
