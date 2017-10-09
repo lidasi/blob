@@ -22,7 +22,8 @@ public class QEmail {
     /*
 * 通过qq邮箱发送邮件,qq邮箱需要在设置里开启POP3/SMTP的授权，通过用户名+授权码方式才能发邮件
 */
-    public static void qqSender(String toEmail, String username, int validate, String token) {
+    public static boolean qqSender(String toEmail, String username, int validate, String token) {
+        boolean res = true;
         MailSSLSocketFactory msf = null;
         try {
             msf = new MailSSLSocketFactory();
@@ -53,7 +54,7 @@ public class QEmail {
             protected PasswordAuthentication getPasswordAuthentication() {
 // 通过用户名和密码进行验证
                 return new PasswordAuthentication("844133353@qq.com",
-                        "sqzzytkzhhvzbcbb");
+                        "dtbtyjgriccybcjf");
             }
 
 
@@ -62,17 +63,19 @@ public class QEmail {
         try {
             // 设置邮件发送方
             message.setFrom(new InternetAddress("844133353@qq.com"));
-            if(username != "") {
+            if(username != "" && validate < 1) {
                 // 设置邮件标题
                 message.setSubject("测试");
                 // 设置邮件内容
                 message.setContent("测试", "text/html;charset=utf-8");
+                res = true;
 
-            } else if(validate > 0) {
+            } else if(validate > 0 && username == "") {
                 // 设置邮件标题
                 message.setSubject("验证信息");
                 // 设置邮件内容
                 message.setContent("你好你在本站获取的邮箱验证码为:" + validate, "text/html;charset=utf-8");
+                res = true;
             }
             // 设置邮件接收方
             message.addRecipient(RecipientType.TO, new InternetAddress(
@@ -84,9 +87,10 @@ public class QEmail {
 
 
         } catch (AddressException e) {
-            e.printStackTrace();
+            res = false;
         } catch (MessagingException e) {
-            e.printStackTrace();
+            res = false;
         }
+        return  res;
     }
 }

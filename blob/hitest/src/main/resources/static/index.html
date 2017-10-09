@@ -235,7 +235,7 @@
 
             <div id="comment" class="relative_div" hidden>
                 <div class="login_code">
-                    <div id="login_model" class="login" data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width: 400, height: 300}">登录</div>
+                    <div id="login_model" class="login" data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width: 400, height: 600}">登录</div>
 
                 </div>
                 <div class="pinglun_code">
@@ -263,8 +263,12 @@
                         <span id="username_text">用户名:</span><input id="username" />
 
                         <span id="password_text">密&nbsp码:</span><input type="password" id="password" />
+                        <span id="authCode_text">验证码:</span><input id="authCode" type="text" >
+                        <label id="authImage"><img type="image" src="authCode.do" id="codeImage" onclick="chageCode()" title="图片看不清？点击重新得到验证码" style="cursor:pointer;"/></label>
+                        <label><a onclick="chageCode()">换一张</a></label>
                         <a id="pwd_forget">忘记密码？</a>
                         <span id="login_up">没有帐号？<a href="html/register.html" style="list-style: none">注册</a></span>
+
                         <div id="login_sits">
                             <input id="login_sit" onclick="login()" type="button" class="am-btn am-btn-secondary am-round am-btn-block" value="登录">
                         </div>

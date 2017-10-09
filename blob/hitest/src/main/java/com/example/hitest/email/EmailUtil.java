@@ -19,9 +19,9 @@ public class EmailUtil {
      *            待发送的邮件的文本内容
      * @return Boolean 发送结果
      */
-    public static boolean sendTextMail(String toAddress, String subject, String content) {
+    public static boolean sendTextMail(String toAddress, int content) {
 
-        String mailserverhost = "127.0.0.1";
+        String mailserverhost = "192.168.0.250";
         String mailserverprot = "25";
         String validate = "true";
         String username = "lidasi";
@@ -37,8 +37,8 @@ public class EmailUtil {
         mailInfo.setPassword(password);
         mailInfo.setFromAddress(fromaddress);
         mailInfo.setToAddress(toAddress);
-        mailInfo.setSubject(subject);
-        mailInfo.setContent(content);
+        mailInfo.setSubject("badUncle");
+        mailInfo.setContent("你在本站获取的验证码是："+content);
         // 发送邮件
         SimpleMailSender sms = new SimpleMailSender();
         boolean mailRes = sms.sendTextMail(mailInfo);// 发送文本格式邮件
@@ -49,8 +49,5 @@ public class EmailUtil {
             // 发送失败
             return false;
         }
-    }
-    public static void main(String[] args) {
-        sendTextMail("844133353@qq.com", "你好！", "这是一封测试邮什");
     }
 }

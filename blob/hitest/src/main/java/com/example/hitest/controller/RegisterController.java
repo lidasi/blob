@@ -47,6 +47,11 @@ public class RegisterController {
 
     }
 
+    /**
+     * 用户注册
+     * @param request
+     * @return
+     */
     @PostMapping(value = "/registerPost")
     public Map<String,String> registerPost(HttpServletRequest request) {
         Map<String, String> res = new HashMap<String,String>();

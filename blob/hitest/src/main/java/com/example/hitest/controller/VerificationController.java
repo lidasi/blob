@@ -3,6 +3,7 @@ package com.example.hitest.controller;
 import com.example.hitest.Util.Const;
 import com.example.hitest.Util.DateUtil;
 import com.example.hitest.Util.HttpUtil;
+import com.example.hitest.email.EmailUtil;
 import com.example.hitest.email.QEmail;
 import com.example.hitest.model.Verification;
 import com.example.hitest.service.VerificationService;
@@ -37,20 +38,40 @@ public class VerificationController {
         values[0] = email;
         Verification verification = verificationService.queyEmail(keys, values);
         if (verification == null) {
-            Verification verification1 = new Verification();
-            verification1.setEmail(email);
-            verification1.setVerificationInfo(randoms);
-            verification1.setCreate_time(DateUtil.getNow17());
-            verificationService.save(verification1);
-            QEmail.qqSender(email, "", randoms, "");
-            res.put("res", "success");
+            if (QEmail.qqSender(email, "", randoms, "")) {
+                Verification verification1 = new Verification();
+                verification1.setEmail(email);
+                verification1.setVerificationInfo(randoms);
+                verification1.setCreate_time(DateUtil.getNow17());
+                verificationService.save(verification1);
+                res.put("res", "success");
+            } else {
+                EmailUtil.sendTextMail(email, randoms);
+                Verification verification1 = new Verification();
+                verification1.setEmail(email);
+                verification1.setVerificationInfo(randoms);
+                verification1.setCreate_time(DateUtil.getNow17());
+                verificationService.save(verification1);
+                res.put("res", "success");
+            }
         } else {
-            verification.setEmail(email);
-            verification.setVerificationInfo(randoms);
-            verification.setCreate_time(DateUtil.getNow17());
-            verificationService.update(verification);
-            QEmail.qqSender(email, "", randoms, "");
-            res.put("res", "success");
+            if (QEmail.qqSender(email, "", randoms, "")) {
+                verification.setEmail(email);
+                verification.setVerificationInfo(randoms);
+                verification.setCreate_time(DateUtil.getNow17());
+                verificationService.update(verification);
+                res.put("res", "success");
+            } else {
+                EmailUtil.sendTextMail(email, randoms);
+                verification.setEmail(email);
+                verification.setVerificationInfo(randoms);
+                verification.setCreate_time(DateUtil.getNow17());
+                verificationService.update(verification);
+                res.put("res", "success");
+            }
+
+
+
         }
         return res;
     }

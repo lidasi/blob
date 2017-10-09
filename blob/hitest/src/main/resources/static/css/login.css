@@ -11,6 +11,19 @@
     top:90px;
     left: 150px;
 }
+#authCode{
+    top: 150px;
+    left: 150px;
+}
+#authImage{
+    top:150px;
+    left: 80px;
+}
+#authImage{
+    position: absolute;
+    top: 210px;
+    left: 150px;
+}
 /*用户名标题*/
 #username_text{
     position: absolute;
@@ -23,16 +36,22 @@
     top:90px;
     left: 80px;
 }
+#authCode_text{
+    position: absolute;
+    top: 150px;
+    left: 80px;
+}
+
 /*忘记密码*/
 #pwd_forget{
     position: absolute;
-    top:150px;
+    top:270px;
     left: 280px;
 }
 /*注册*/
 #login_up{
     position: absolute;
-    top: 150px;
+    top: 270px;
     left: 50px;
 }
 /*登录按钮*/
@@ -40,6 +59,6 @@
     position: absolute;
     width: 140px;
     height: 80px;
-    top: 200px;
+    top: 320px;
     left: 140px;
 }
