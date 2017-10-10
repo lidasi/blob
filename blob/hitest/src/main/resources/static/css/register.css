@@ -76,7 +76,7 @@ position: absolute;
     position: absolute;
     width: 100px;
     height: 30px;
-    top: 420px;
+    top: 400px;
     left: 148px;
 }
 #register_msg{
@@ -89,6 +89,7 @@ position: absolute;
     font-family: 华文新魏;
 
 }
+
 #register_success{
 
 }

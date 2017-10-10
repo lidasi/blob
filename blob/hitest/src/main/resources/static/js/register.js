@@ -67,14 +67,14 @@ function mouseLeave(data) {
     } else if(data == 1) {
         if (!pwdChk) {
             $("#register_msg").html("密码必须是字母加数字组合（不能有特殊符号，下划线）");
-            $("#login_sit").attr("disabled","disabled");
+            $("#login_rit").attr("disabled","disabled");
         } else {
             $("#register_msg").html("");
         }
     } else if (data == 2) {
         if (!emaChk) {
             $("#register_msg").html("请输入正确的电子邮箱");
-            $("#login_sit").attr("disabled","disabled");
+            $("#login_rit").attr("disabled","disabled");
         } else {
             $("#register_msg").html("");
         }

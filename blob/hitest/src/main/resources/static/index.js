@@ -167,3 +167,7 @@ function massage() {
 
     console.log("展开评论区")
 }
+
+function chageCode(){
+    $('#codeImage').attr('src','authCode.do?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+}

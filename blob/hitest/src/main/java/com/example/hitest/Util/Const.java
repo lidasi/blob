@@ -44,7 +44,7 @@ public interface Const {
     /**
      * 密码
      */
-    String PASSWORD = "password";
+    String PASSWORD = "user_password";
 
     /**
      * 邮箱

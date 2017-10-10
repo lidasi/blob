@@ -12,17 +12,19 @@
     left: 150px;
 }
 #authCode{
+    position: absolute;
     top: 150px;
     left: 150px;
 }
 #authImage{
-    top:150px;
-    left: 80px;
-}
-#authImage{
     position: absolute;
-    top: 210px;
+    top:210px;
     left: 150px;
+}
+#authFun{
+    position: absolute;
+    top: 240px;
+    left: 250px;
 }
 /*用户名标题*/
 #username_text{
@@ -59,6 +61,15 @@
     position: absolute;
     width: 140px;
     height: 80px;
-    top: 320px;
+    top: 360px;
     left: 140px;
+}
+#login_msg{
+    position: absolute;
+    left: 25px;
+    top:320px;
+    width: 350px;
+    height: 70px;
+    text-align: center;
+    font-family: 华文新魏;
 }

@@ -1,5 +1,6 @@
 package com.example.hitest.controller;
 
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -10,6 +11,8 @@ import javax.servlet.http.HttpSession;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Random;
 
 @RestController
@@ -72,5 +75,14 @@ public class imageVfController {
         int g = fc + random.nextInt(bc - fc);
         int b = fc + random.nextInt(bc - fc);
         return new Color(r,g,b);
+    }
+
+    @PostMapping({"getStrCode"})
+    public Map<String, Object> getStrCode(HttpSession session){
+        Map<String, Object> strCode = new HashMap<String, Object>();
+        Object strObj = session.getAttribute("strCode");
+        strCode.put("strCode", strObj);
+        return  strCode;
+
     }
 }
