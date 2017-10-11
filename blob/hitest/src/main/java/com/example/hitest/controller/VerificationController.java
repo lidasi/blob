@@ -31,7 +31,6 @@ public class VerificationController {
         JSONObject reqParam = HttpUtil.getJsonObjFromRequest(request);
         String email = reqParam.optString("email");
         int randoms = new Random().nextInt(999999);
-        System.out.println(randoms);
         String[] keys = new String[1];
         Object[] values = new Object[1];
         keys[0] = Const.EMAIL;

@@ -15,9 +15,12 @@ public class Userinfo implements Serializable {
     private String user_name;
     private String user_password;
     private String email;
+    private String nickname;
+    private String head_portrait;
     private Long email_code;
     private String create_time;
     private String updata_time;
+    private Long sex;
 
     public Userinfo(){
 
@@ -79,5 +82,29 @@ public class Userinfo implements Serializable {
 
     public void setUpdata_time(String updata_time) {
         this.updata_time = updata_time;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getHead_portrait() {
+        return head_portrait;
+    }
+
+    public void setHead_portrait(String head_portrait) {
+        this.head_portrait = head_portrait;
+    }
+
+    public Long getSex() {
+        return sex;
+    }
+
+    public void setSex(Long sex) {
+        this.sex = sex;
     }
 }

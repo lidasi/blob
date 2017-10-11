@@ -3,6 +3,7 @@ package com.example.hitest.controller;
 import com.example.hitest.Util.Const;
 import com.example.hitest.Util.DateUtil;
 import com.example.hitest.Util.HttpUtil;
+import com.example.hitest.Util.TextUtil;
 import com.example.hitest.model.Userinfo;
 import com.example.hitest.model.Verification;
 import com.example.hitest.service.UserinfoService;
@@ -14,9 +15,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 @RestController
 @RequestMapping(value = "/user")
@@ -59,6 +62,17 @@ public class RegisterController {
         String username = reqParam.optString("username");
         String password = reqParam.optString("password");
         String email = reqParam.optString("email");
+
+        File file = new File("D:/phrase.txt");
+        String phraseString = TextUtil.txt2String(file);
+        String[] array = phraseString.split(",");
+        Random random = new Random();
+        int i = random.nextInt(38282);
+        /**
+         * 初期化用户昵称
+         */
+        String nickName = array[i];
+
         Date date = new Date();
         String[] keys = new String[1];
         Object[] values = new Object[1];
@@ -79,6 +93,8 @@ public class RegisterController {
                 useSave.setEmail_code(0L);
                 useSave.setUser_password(password);
                 useSave.setEmail(email);
+                useSave.setNickname(nickName);
+                useSave.setSex(0L);
                 useSave.setCreate_time(DateUtil.getNow17());
                 useSave.setUpdata_time(DateUtil.getNow17());
                 userinfoService.save(useSave);

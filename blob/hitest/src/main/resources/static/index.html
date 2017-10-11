@@ -151,7 +151,7 @@
     <div class="am-collapse am-topbar-collapse" id="doc-topbar-collapse">
         <ul class="am-nav am-nav-pills am-topbar-nav">
             <li class="am-active"><a href="index.html">首页</a></li>
-            <li><a href="#" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 800, height: 500}">个人项目地址</a></li>
+            <li><a href="#" data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 500, height: 500}">个人项目地址</a></li>
             <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
                 <div class="am-modal-dialog">
                     <div class="am-modal-hd">项目地址列表
@@ -212,8 +212,25 @@
 
     </div>
 </header>
-    <div id="follow" hidden>
+    <div data-am-offcanvas="{target: '#doc-oc-demo3'}" id="follow">
         <span>个人信息</span>
+    </div>
+    <div id="doc-oc-demo3" class="am-offcanvas">
+        <div class="am-offcanvas-bar am-offcanvas-bar-flip">
+            <div class="am-offcanvas-content">
+                <div id="user_infoPage">
+                    <img id="info_haed" src="headImage/defHead_man.jpg">
+                    <span id="infoPage_nickName">更替喵困右</span>
+                    <ul id="edit" >
+                        <li href="javascript:void(0)" onclick="massage()" style='list-style:none; float:right'><i class="am-secondary am-icon-edit"></i></li>
+                    </ul>
+                    <ul id="sign-out" >
+                        <li href="javascript:void(0)" onclick="massage()" style='list-style:none; float:right'><i class="am-secondary am-icon-sign-out"></i></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
     </div>
 <div class="am-g am-g-fixed blog-g-fixed">
     <div class="am-u-md-8">
@@ -241,7 +258,7 @@
             <div id="comment" class="relative_div" hidden>
                 <div class="login_code">
                     <div id="login_model" class="login" data-am-modal="{target: '#doc-modal-2', closeViaDimmer: 0, width: 400, height: 500}">登录</div>
-
+                    <img id="userImageUrl" data-am-offcanvas="{target: '#doc-oc-demo3'}" src="headImage/defHead_man.jpg" hidden />
                 </div>
                 <div class="pinglun_code">
                     <div class="content_div">
@@ -259,6 +276,7 @@
                 <input id="sub_btn" onclick="sub_btn" type="button" class="am-btn-sm am-btn-danger am-round" value="提交">
                 <div id="show"></div>
             </div>
+
             <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-2">
                 <div class="am-modal-dialog">
                     <div class="am-modal-hd">用户登录

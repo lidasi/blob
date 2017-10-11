@@ -61,13 +61,33 @@ function loginRes(username, password) {
 }
 
 function loginResCheck(data) {
-    if (data.res == "success") {
+    if (data != null) {
+        var username = data.username;
+        var email = data.email;
+        var nickname = data.nickname;
+        var sex = data.sex;
+        var head_portrait = data.head_portrait;
+        $("#login_model").hide();
+        $("#userImageUrl").show();
+        if(head_portrait != null && head_portrait != "") {
+
+            $("#userImageUrl").src(head_portrait);
+        } else {
+            if (sex == 0) {
+                $("#userImageUrl").attr('src',"headImage/defHead_man.jpg");
+            } else {
+                $("#userImageUrl").attr('src', "headImage/defHead_wman.jpg");
+            }
+
+        }
+
         $("#login_msg").html("登录成功");
         $("#doc-modal-2").modal();
         $("#follow").show();
     } else {
         $("#login_msg").html("登录失败");
         $("#follow").hide();
+        $("#userImageUrl").hide();
         chageCode();
     }
 }
@@ -88,8 +108,28 @@ function loginGetUserinfo() {
 
 function loginGetCheck(data) {
     if (data.userinfo != null) {
-        console.log("有用户")
+        var username = data.userinfo.username;
+        var email = data.userinfo.email;
+        var nickname = data.userinfo.nickname;
+        var sex = data.userinfo.sex;
+        var head_portrait = data.userinfo.head_portrait;
+        $("#login_model").hide();
+        $("#userImageUrl").show();
+        if(head_portrait != null && head_portrait != "") {
+
+            $("#userImageUrl").src(head_portrait);
+        } else {
+            if (sex == 0) {
+                $("#userImageUrl").attr('src',"headImage/defHead_man.jpg");
+            } else {
+                $("#userImageUrl").attr('src', "headImage/defHead_wman.jpg");
+            }
+
+        }
+        $("#follow").show();
     } else {
-        console.log("无用户")
+        $("#follow").hide();
+        $("#login_model").show();
+        $("#userImageUrl").hide();
     }
 }
