@@ -212,7 +212,7 @@
 
     </div>
 </header>
-    <div data-am-offcanvas="{target: '#doc-oc-demo3'}" id="follow">
+    <div data-am-offcanvas="{target: '#doc-oc-demo3'}" id="follow" hidden>
         <span>个人信息</span>
     </div>
     <div id="doc-oc-demo3" class="am-offcanvas">
@@ -220,15 +220,29 @@
             <div class="am-offcanvas-content">
                 <div id="user_infoPage">
                     <img id="info_haed" src="headImage/defHead_man.jpg">
-                    <span id="infoPage_nickName">更替喵困右</span>
+                    <span id="infoPage_nickName"></span>
+
                     <ul id="edit" >
-                        <li href="javascript:void(0)" onclick="massage()" style='list-style:none; float:right'><i class="am-secondary am-icon-edit"></i></li>
+                        <li href="javascript:void(0)" style='list-style:none; float:right' ><i class="am-secondary am-icon-edit" data-am-popover="{theme: 'warning lg', content: '修改', trigger: 'hover focus'}"></i></li>
                     </ul>
                     <ul id="sign-out" >
-                        <li href="javascript:void(0)" onclick="massage()" style='list-style:none; float:right'><i class="am-secondary am-icon-sign-out"></i></li>
+                        <li href="javascript:void(0)" style='list-style:none; float:right'><i class="am-secondary am-icon-sign-out" data-am-popover="{theme: 'danger sm', content: '退出', trigger: 'hover focus'}" data-am-modal="{target: '#my-confirm'}"></i></li>
                     </ul>
+                    <div id="leavingCode"><span>设计中</span></div>
                 </div>
 
+            </div>
+        </div>
+    </div>
+    <div class="am-modal am-modal-confirm" tabindex="-1" id="my-confirm">
+        <div class="am-modal-dialog">
+            <div class="am-modal-hd">退出提示</div>
+            <div class="am-modal-bd">
+                你，确定要退出吗？？
+            </div>
+            <div class="am-modal-footer">
+                <span class="am-modal-btn" data-am-modal-cancel>取消</span>
+                <span class="am-modal-btn" onclick="signOut()" data-am-modal-confirm>确定</span>
             </div>
         </div>
     </div>

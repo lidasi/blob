@@ -69,14 +69,17 @@ function loginResCheck(data) {
         var head_portrait = data.head_portrait;
         $("#login_model").hide();
         $("#userImageUrl").show();
+        $("#infoPage_nickName").html(nickname);
         if(head_portrait != null && head_portrait != "") {
-
-            $("#userImageUrl").src(head_portrait);
+            $("#userImageUrl").attr('src', head_portrait);
+            $("#info_haed").attr('src', head_portrait);
         } else {
             if (sex == 0) {
                 $("#userImageUrl").attr('src',"headImage/defHead_man.jpg");
+                $("#info_haed").attr('src', "headImage/defHead_man.jpg")
             } else {
                 $("#userImageUrl").attr('src', "headImage/defHead_wman.jpg");
+                $("#info_haed").attr('src', "headImage/defHead_wman.jpg");
             }
 
         }
@@ -84,6 +87,7 @@ function loginResCheck(data) {
         $("#login_msg").html("登录成功");
         $("#doc-modal-2").modal();
         $("#follow").show();
+        chageCode();
     } else {
         $("#login_msg").html("登录失败");
         $("#follow").hide();
@@ -115,14 +119,18 @@ function loginGetCheck(data) {
         var head_portrait = data.userinfo.head_portrait;
         $("#login_model").hide();
         $("#userImageUrl").show();
+        $("#infoPage_nickName").html(nickname);
         if(head_portrait != null && head_portrait != "") {
 
-            $("#userImageUrl").src(head_portrait);
+            $("#userImageUrl").attr('src', head_portrait);
+            $("#info_haed").attr('src', head_portrait);
         } else {
             if (sex == 0) {
                 $("#userImageUrl").attr('src',"headImage/defHead_man.jpg");
+                $("#info_haed").attr('src', "headImage/defHead_man.jpg")
             } else {
                 $("#userImageUrl").attr('src', "headImage/defHead_wman.jpg");
+                $("#info_haed").attr('src', "headImage/defHead_wman.jpg");
             }
 
         }
@@ -131,5 +139,22 @@ function loginGetCheck(data) {
         $("#follow").hide();
         $("#login_model").show();
         $("#userImageUrl").hide();
+    }
+}
+
+function signOut(){
+    var sessionCleanUrl = defaultWebUrl + "user/sessionClean"
+    var array ={};
+    var trReq = new jsonReq();
+    trReq.setEventListener("receive", signOutCheck);
+    trReq.send(sessionCleanUrl, array)
+}
+
+function signOutCheck(data){
+    if (data.res == "ok") {
+        $("#follow").hide();
+        $("#login_model").show();
+        $("#userImageUrl").hide();
+        location.reload()
     }
 }

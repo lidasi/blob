@@ -57,4 +57,12 @@ public class LoginController {
 
         return res;
     }
+
+    @PostMapping(value = "/sessionClean")
+    public Map<String, String> sessionClean(HttpSession session) {
+        Map<String, String> res = new HashMap<String, String>();
+        session.removeAttribute("userinfo");
+        res.put("res", "ok");
+        return  res;
+    }
 }
