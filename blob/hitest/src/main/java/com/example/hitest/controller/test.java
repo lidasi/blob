@@ -1,6 +1,8 @@
 package com.example.hitest.controller;
 
 import com.example.hitest.Util.DateUtil;
+import net.sf.json.JSONArray;
+import net.sf.json.JSONObject;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
 import java.io.BufferedReader;
@@ -10,6 +12,7 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 
 public class test {
@@ -24,7 +27,7 @@ public class test {
             nickName+=han.getRandomHan();
         }
         System.out.print(nickName);*/
-        int count = 0;
+        /*int count = 0;
         File file = new File("D:/phrase.txt");
         String phraseString = txt2String(file);
         String[] array = phraseString.split(",");
@@ -32,7 +35,8 @@ public class test {
             count += 1;
             System.out.println(array[i]);
         }
-        System.out.print(count);
+        System.out.print(count);*/
+        rticleTest();
 
     }
 
@@ -92,5 +96,38 @@ public class test {
             e.printStackTrace();
         }
         return result.toString();
+    }
+
+    public static void rticleTest(){
+        JSONObject jsonObject = new JSONObject();
+        JSONArray jsonArray = new JSONArray();
+        JSONObject lan1 = new JSONObject();
+        lan1.put("id", 1);
+        lan1.put("content", "今天天气不错");
+        lan1.put("pid", 0);
+        jsonArray.add(lan1);
+
+        JSONObject lan2 = new JSONObject();
+        lan2.put("id", 2);
+        lan2.put("content", "今天天气挺好");
+        lan2.put("pid", 0);
+        jsonArray.add(lan2);
+
+        JSONObject lan3 = new JSONObject();
+        lan3.put("id", 3);
+        lan3.put("content", "你说的很对");
+        lan3.put("pid", 1);
+        jsonArray.add(lan3);
+
+        JSONObject lan4 = new JSONObject();
+        lan4.put("id", 4);
+        lan4.put("content", "明天天气也很不错");
+        lan4.put("pid", 2);
+        jsonArray.add(lan4);
+
+        jsonObject.put("language", jsonArray);
+        String stringObj = jsonObject.getString("language");
+        System.out.print(jsonArray.get(2));
+
     }
 }

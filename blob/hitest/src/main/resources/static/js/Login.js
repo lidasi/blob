@@ -158,3 +158,22 @@ function signOutCheck(data){
         location.reload()
     }
 }
+
+function loginVlidata() {
+    var hotContentUrl = defaultWebUrl + "user/GetSession"
+    $.ajax({
+        type:"GET",
+        url: hotContentUrl,
+        error:function(data){
+            //alert("出错了！！:"+data);
+        },
+        success:function(data){
+            if(data.userinfo != null){
+                return true;
+            } else {
+                return false;
+            }
+        }
+    })
+
+}

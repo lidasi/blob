@@ -449,11 +449,16 @@
         });
 
         $("#sub_btn").click(function(){
-
             var str = $("#saytext").val();
+            if(loginVlidata()){
+                $("#show").html(replace_em(str));
+            } else {
+
+            }
+
 
             
-            $("#show").html(replace_em(str));
+
 
         });
 
