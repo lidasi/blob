@@ -62,6 +62,7 @@ function loginRes(username, password) {
 
 function loginResCheck(data) {
     if (data != null) {
+        blob.user_id = data.user_id;
         var username = data.username;
         var email = data.email;
         var nickname = data.nickname;
@@ -161,7 +162,28 @@ function signOutCheck(data){
 
 function loginVlidata() {
     var hotContentUrl = defaultWebUrl + "user/GetSession"
-    $.ajax({
+
+    var xhr = null;
+    if(window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+    }else {
+        xhr = new ActiveXObject('Microsoft.XMLHTTP');
+    }
+    //2.打开与服务器的链接
+    xhr.open('get',hotContentUrl,false);
+    //3.发送给服务器
+    xhr.send(null);
+    //4.响应就绪（同步请求）
+    var json = JSON.parse(xhr.responseText);
+    if (json.userinfo == null) {
+        return false;
+    } else {
+        return true;
+    }
+
+    console.log('其他程序');
+
+    /*$.ajax({
         type:"GET",
         url: hotContentUrl,
         error:function(data){
@@ -174,6 +196,5 @@ function loginVlidata() {
                 return false;
             }
         }
-    })
-
+    })*/
 }

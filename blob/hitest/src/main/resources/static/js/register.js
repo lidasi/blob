@@ -1,4 +1,3 @@
-
 function dateMourse() {
     var dateMourseUrl = "http://localhost:8080/user/dataMourse"
     var email = $("#email").val();

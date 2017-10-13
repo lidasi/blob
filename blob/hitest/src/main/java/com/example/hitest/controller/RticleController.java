@@ -40,6 +40,7 @@ public class RticleController {
         articleList = contentService.listAll(first, lenght);
         int allCount = contentService.listAllCnt();
         for(Content articles : articleList) {
+           articleMap.put("content_id" + count, articles.getContent_id());
            articleMap.put("title" + count, articles.getTitle_content());
            articleMap.put("content" + count, articles.getContents());
            articleMap.put("code" + count, articles.getCodes());
@@ -71,6 +72,7 @@ public class RticleController {
         List<Content> titleByOneList = new ArrayList<Content>();
         titleByOneList = contentService.titleByOneAll(keys, values);
         for(Content articles : titleByOneList) {
+            titleByOneAllmap.put(Const.CONTENT_ID, articles.getContent_id());
             titleByOneAllmap.put(Const.TITLE, articles.getTitle_content());
             titleByOneAllmap.put(Const.CONTENT, articles.getContents());
             titleByOneAllmap.put(Const.CODE, articles.getCodes());
@@ -112,6 +114,7 @@ public class RticleController {
         List<Content> titleByTwoList = new ArrayList<Content>();
         titleByTwoList = contentService.titleByOneAll(keys, values);
         for(Content titleList : titleByTwoList) {
+            titleByTwoAllmap.put(Const.CONTENT_ID, titleList.getContent_id());
             titleByTwoAllmap.put(Const.TITLE, titleList.getTitle_content());
             titleByTwoAllmap.put(Const.CONTENT, titleList.getContents());
             titleByTwoAllmap.put(Const.CODE, titleList.getCodes());

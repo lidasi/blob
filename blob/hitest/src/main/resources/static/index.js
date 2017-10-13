@@ -1,3 +1,9 @@
+function blob(){
+    this.user_id = "";
+    this.content_id0 = "";
+    this.content_id1="";
+}
+
 function contentFun() {
     var articleList = defaultWebUrl + "user/articleList"
     var first = 0;
@@ -37,6 +43,7 @@ function contentFun() {
 
 }
 function pageFun(data) {
+    blob.content_id0 = data.content_id0;
     $("#code_id01").html(data.code0);
     $("#artile_id01").html(data.content0);
     $("#title_id01").html(data.title0);
@@ -44,6 +51,7 @@ function pageFun(data) {
     $("#time_01").html("创建时间:" + data.crTime0)
     if (data.artile1 != "") {
         $("#code_id02").show();
+        blob.content_id1 = data.content_id1;
         $("#code_id02").html(data.code1);
         $("#artile_id02").html(data.content1);
         $("#title_id02").html(data.title1);
@@ -103,7 +111,7 @@ function titleByTwo() {
                 $("#code_id01").show();
                 $("#code_id01").html(data.code);
             }
-
+            blob.content_id0 = data.content_id;
             $("#artile_id01").html(data.content);
             $("#title_id01").html(data.title);
             $("#img_01").attr('src',data.imgUrl);
@@ -125,7 +133,7 @@ function resultData(data) {
         $("#code_id01").show();
         $("#code_id01").html(data.code);
     }
-
+    blob.content_id0 = data.content_id;
     $("#artile_id01").html(data.content);
     $("#title_id01").html(data.title);
     $("#img_01").attr('src',data.imgUrl);
@@ -157,17 +165,63 @@ function  fail() {
     //alert("获取文本失败");
 }
 
-function massage() {
-    if($("#comment").is(":hidden")){
-        $("#comment").show();
+function massage(data) {
 
+    if(data == 1){
+        if($("#comment").is(":hidden")){
+            commentSelect(data)
+            $("#comment").show();
+            $("#comment_two").hide();
+        } else {
+            $("#comment").hide();
+        }
     } else {
-        $("#comment").hide();
+        if($("#comment_two").is(":hidden")){
+            commentSelect(data);
+            $("#comment_two").show();
+            $("#comment").hide();
+
+        } else {
+            $("#comment_two").hide();
+        }
     }
+
 
     console.log("展开评论区")
 }
 
 function chageCode(){
     $('#codeImage').attr('src','authCode.do?abc='+Math.random());//链接后添加Math.random，确保每次产生新的验证码，避免缓存问题。
+}
+
+/*评论查询*/
+function commentSelect(data) {
+    var content_id = 0;
+    if(data == 1) {
+        content_id = blob.content_id0;
+    } else {
+        content_id = blob.content_id1;
+    }
+
+    var titleByTwoUrl = defaultWebUrl + "user/commentSelect"
+    $.ajax({
+        type:"GET",
+        url: titleByTwoUrl,
+        data: {"content_id" : content_id},
+        dataType: "json",
+        error:function(data){
+            console.log(data);
+        },
+        success:function(data){
+            console.log(data);
+
+        }
+    });
+}
+
+/*插入评论*/
+function commentInsert() {
+    console.log("user_id:", blob.user_id);
+    console.log("content_id:", blob.content_id);
+
 }

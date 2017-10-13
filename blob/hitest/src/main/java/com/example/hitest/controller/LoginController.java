@@ -38,6 +38,7 @@ public class LoginController {
         Userinfo userinfo = userinfoService.queryUsername(keys, vlues);
         if (userinfo != null) {
             session.setAttribute("userinfo", userinfo);
+            res.put("user_id", userinfo.getUser_id().toString());
             res.put("username", userinfo.getUser_name());
             res.put("email", userinfo.getEmail());
             res.put("nickname", userinfo.getNickname());

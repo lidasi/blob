@@ -7,6 +7,16 @@ public interface Const {
     String TITLE = "title";
 
     /**
+     * 文章id
+     */
+    String CONTENT_ID = "content_id";
+
+    /**
+     * 评论文章id
+     */
+    String ARTICLE_ID = "article_id";
+
+    /**
      * 文章内容
      */
     String CONTENT = "content";

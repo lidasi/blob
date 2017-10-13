@@ -197,6 +197,36 @@
     border-bottom: 1px dashed #b3b3b3;
 }
 
+/*two*/
+#image2{
+    position: absolute;
+    top: 165px;
+    left: 15%;
+}
+#sub_btn2{
+    position: absolute;
+    top: 165px;
+    left: 78%;
+}
+#saytext2{
+    position: absolute;
+    width: 82%;
+    height: 75px;
+    top: 39px;
+    left: 3.5%;
+}
+
+#show2 {
+    position: absolute;
+    width: 500px;
+    margin: 20px auto;
+    padding: 5px;
+    top: 180px;
+    left: 80px;
+    vertical-align: top;
+    border-bottom: 1px dashed #b3b3b3;
+}
+
 #follow{
     position: fixed;
     background-color: #3bb4f2;
