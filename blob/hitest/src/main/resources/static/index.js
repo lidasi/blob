@@ -166,7 +166,6 @@ function  fail() {
 }
 
 function massage(data) {
-
     if(data == 1){
         if($("#comment").is(":hidden")){
             commentSelect(data)
@@ -213,7 +212,13 @@ function commentSelect(data) {
             console.log(data);
         },
         success:function(data){
-            console.log(data);
+
+            for(var key in data){
+                var valueData = data[key];
+                for(var dataKey in valueData){
+                    console.log(valueData[dataKey]);
+                }
+            }
 
         }
     });

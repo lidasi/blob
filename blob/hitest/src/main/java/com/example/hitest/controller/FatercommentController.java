@@ -22,25 +22,30 @@ public class FatercommentController {
     FatercommentService fatercommentService;
 
     @GetMapping(value = "/commentSelect")
-    public List<Map> commentSelect(HttpServletRequest request) {
-        List<Map> res = new ArrayList<Map>();
-        Map<String, String> map = new HashMap<String, String>();
+    public Map<String, Object> commentSelect(HttpServletRequest request) {
+
+        Map<String, Object> res = new HashMap<String, Object>();
         String content_id = request.getParameter(Const.CONTENT_ID);
+        int count = 0;
         String [] keys = new String[1];
         Object [] values = new Object[1];
         keys[0] = Const.ARTICLE_ID;
         values[0] = Long.parseLong(content_id);
         List<Fatercomment> fatercomment = fatercommentService.commentQuery(keys, values);
         /*Fatercomment fatercomment = fatercommentService.byOneQuery(keys, values);*/
-
-        for (Fatercomment fatercomment1 : fatercomment) {
+        /*for (Fatercomment fatercomment1 : fatercomment) {
             map.put("seq", fatercomment1.getSeq().toString());
             map.put("comment_info", fatercomment1.getComment_info());
             map.put("pid", fatercomment1.getPid().toString());
             map.put("userinfo_id", fatercomment1.getUserinfo_id().toString());
             map.put("article_id", fatercomment1.getArticle_id().toString());
             map.put("comment_time", fatercomment1.getComment_time());
-            res.add(map);
+            res.set(count,map);
+            count += 1;
+        }*/
+        for(int i = 0; i < fatercomment.size(); i++) {
+            res.put(count+ "", fatercomment.get(i));
+            count += 1;
         }
         return res;
     }
