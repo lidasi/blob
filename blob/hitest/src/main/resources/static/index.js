@@ -212,14 +212,9 @@ function commentSelect(data) {
             console.log(data);
         },
         success:function(data){
-
-            for(var key in data){
-                var valueData = data[key];
-                for(var dataKey in valueData){
-                    console.log(valueData[dataKey]);
-                }
-            }
-
+            var valueData;
+            var count = 0;
+            console.log(data.length);
         }
     });
 }
